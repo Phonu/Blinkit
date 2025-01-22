@@ -1,5 +1,6 @@
 import AdminJS from "adminjs";
 import AdminJSFastify from "@adminjs/fastify";
+import { dark, light } from "@adminjs/themes";
 
 import * as AdminJSMongoose from "@adminjs/mongoose";
 import * as Models from "../models/index.js";
@@ -35,11 +36,28 @@ export const admin = new AdminJS({
     {
       resource: Models.Branch,
     },
+    {
+      resource: Models.Product,
+    },
+    {
+      resource: Models.Category,
+    },
+
+    {
+      resource: Models.Counter,
+    },
+    {
+      resource: Models.Order,
+    },
   ],
 
   branding: {
+    //favicon: 'we can add icons'
+    //logo: add logo uri
     companyName: "Blinkit",
     withMadeWithLove: false,
+    defaultTheme: dark.id,
+    avaiableThemes: [dark],
   },
   rootPath: "/admin",
 });
