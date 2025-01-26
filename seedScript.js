@@ -1,3 +1,8 @@
+/**
+ * Execute the script
+ * node seedScript.js
+ */
+
 import mongoose from "mongoose";
 import { Branch, Category, Product } from "./src/models/index.js";
 import "dotenv/config";
@@ -8,9 +13,12 @@ async function seedDatabase() {
     console.log("URIIIII", process.env.MONGO_URI);
     await mongoose.connect(process.env.MONGO_URI);
     await Product.deleteMany({});
+    await Category.deleteMany({});
+
     // await Branch.deleteMany({});
 
     const categoryDocs = await Category.insertMany(categories);
+    console.log("checking categories....", categories);
 
     const categoryMap = categoryDocs.reduce((map, category) => {
       map[category.name] = category._id;

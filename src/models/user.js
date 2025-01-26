@@ -19,7 +19,7 @@ const customerSchema = new mongoose.Schema({
   phone: { type: Number, required: true, unique: true },
   role: { type: String, enum: ["Customer"], default: "Customer" },
   liveLocation: {
-    latitute: { type: Number },
+    latitude: { type: Number },
     longitude: { type: Number },
   },
   address: { type: String },

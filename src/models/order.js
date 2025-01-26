@@ -8,9 +8,9 @@ const orderSchema = new mongoose.Schema({
     ref: "Customer",
     required: true,
   },
-  DeliveryPartner: {
+  deliveryPartner: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "DeliveryParter",
+    ref: "DeliveryPartner",
   },
   branch: {
     type: mongoose.Schema.Types.ObjectId,
@@ -39,19 +39,19 @@ const orderSchema = new mongoose.Schema({
     longitude: { type: Number, required: true },
     address: { type: String },
   },
-  pickupLocation: {
-    latitude: { type: Number, required: true },
-    longitude: { type: Number, required: true },
-    address: { type: String },
-  },
-  deliveryPatnerLocation: {
+  // pickupLocation: {
+  //   latitude: { type: Number, required: true },
+  //   longitude: { type: Number, required: true },
+  //   address: { type: String },
+  // },
+  deliveryPartnerLocation: {
     latitude: { type: Number, required: true },
     longitude: { type: Number, required: true },
     address: { type: String },
   },
   status: {
     type: String,
-    enum: ["avaiable", "confirmed", "arriving", "delivered", "cancelled"],
+    enum: ["available", "confirmed", "arriving", "delivered", "cancelled"],
     default: "available",
   },
   totalPrice: { type: Number, required: true },
